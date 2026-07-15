@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đăng ký khóa học IELTS – IELTS The Tutors</title>
+<meta name="description" content="Đăng ký khóa học và luyện thi IELTS tại IELTS The Tutors – You Deserve Better. Cam kết đầu ra bằng văn bản, 5000+ học viên, 8+ năm kinh nghiệm.">
+<style>
+  :root {
+    --accent: #e72929;         /* đỏ thương hiệu — lấy từ logo/CSS site gốc */
+    --accent-dark: #b81f1f;
+    --accent-soft: #ffeef0;
+    --navy: #6b1414;           /* đỏ đậm dùng cho header/footer */
+    --charcoal: #6b1414;
+    --ink: #2a1414;
+    --muted: #6b5b5b;
+    --bg: #ffffff;
+    --bg-alt: #fff6f6;
+    --radius: 14px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+  }
+  img { max-width: 100%; }
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+  /* ---------- Header ---------- */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(107,20,20,.97);
+    color: #fff;
+  }
+  .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 20px; max-width: 1080px; margin: 0 auto;
+  }
+  .brand { font-weight: 800; letter-spacing: 1px; font-size: 1.15rem; }
+  .brand span { color: var(--accent); }
+  nav.menu { display: flex; gap: 22px; flex-wrap: wrap; }
+  nav.menu a {
+    color: #fff; text-decoration: none; font-size: .85rem;
+    letter-spacing: 1.5px; text-transform: uppercase; opacity: .85;
+  }
+  nav.menu a:hover { opacity: 1; color: #ffb3b3; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    background: linear-gradient(160deg, #6b1414 0%, #e72929 60%, #ff9d9d 100%);
+    color: #fff;
+    padding: 70px 20px 120px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-inner {
+    max-width: 1080px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: 48px;
+    align-items: start;
+    position: relative; z-index: 1;
+  }
+  .hero-copy { text-align: left; padding-top: 48px; }
+  @media (max-width: 900px) {
+    .hero-copy { padding-top: 0; }
+  }
+  .hero-form { scroll-margin-top: 90px; }
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 36px; }
+    .hero-copy { text-align: center; }
+    .hero .hero-copy .actions { justify-content: center; }
+  }
+  .hero::after {
+    content: "";
+    position: absolute; left: 0; right: 0; bottom: -1px;
+    height: 70px;
+    background: var(--bg);
+    clip-path: polygon(0 100%, 100% 100%, 100% 0, 50% 70%, 0 0);
+  }
+  .hero .tagline {
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,.6);
+    padding: 6px 18px; border-radius: 999px;
+    font-size: .8rem; letter-spacing: 3px; text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: clamp(1.7rem, 3.2vw, 2.5rem);
+    line-height: 1.2; letter-spacing: 1px;
+    text-transform: uppercase; font-weight: 800;
+    margin: 0 0 16px;
+    text-shadow: 0 2px 12px rgba(0,0,0,.25);
+  }
+  .hero p.sub {
+    max-width: 560px; margin: 0 0 32px;
+    font-size: 1.02rem; opacity: .95;
+  }
+  @media (max-width: 900px) {
+    .hero p.sub { margin: 0 auto 32px; }
+  }
+  .btn {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff; text-decoration: none;
+    font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    padding: 15px 36px; border-radius: 999px;
+    border: none; cursor: pointer; font-size: .9rem;
+    transition: background .2s, transform .15s;
+  }
+  .btn:hover { background: var(--accent-dark); transform: translateY(-2px); }
+  .btn.ghost {
+    background: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+  }
+  .btn.ghost:hover { background: var(--accent); color: #fff; }
+  .hero .actions { display: flex; gap: 16px; justify-content: flex-start; flex-wrap: wrap; }
+  .hero .btn { background: #fff; color: var(--navy); }
+  .hero .btn:hover { background: var(--accent-soft); }
+  .hero .btn.ghost { background: transparent; border-color: #fff; color: #fff; }
+  .hero .btn.ghost:hover { background: #fff; color: var(--navy); }
+
+  /* ---------- Testimonials ---------- */
+  .testimonials { background: #fff; }
+  .testimonials .grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+  .t-card {
+    background: #fff; border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 4px 18px rgba(0,0,0,.08);
+    display: flex; flex-direction: column;
+  }
+  .t-card img { width: 100%; height: 190px; object-fit: cover; display: block; }
+  .t-card .t-body { padding: 18px 20px 22px; flex: 1; display: flex; flex-direction: column; }
+  .t-card .t-score {
+    align-self: flex-start;
+    background: var(--accent-soft); color: var(--accent-dark);
+    font-size: .78rem; font-weight: 800; letter-spacing: .5px;
+    padding: 4px 12px; border-radius: 999px; margin-bottom: 10px;
+  }
+  .t-card blockquote {
+    font-size: .92rem; color: #444; font-style: italic;
+    margin: 0 0 14px; flex: 1; line-height: 1.6;
+  }
+  .t-card .t-name { font-weight: 800; color: var(--charcoal); font-size: .96rem; }
+  .t-card .t-role { font-size: .8rem; color: var(--muted); }
+
+  /* ---------- Sections ---------- */
+  section { padding: 72px 0; scroll-margin-top: 90px; }
+  .section-head { text-align: center; margin-bottom: 48px; }
+  .section-head .kicker {
+    color: var(--accent-dark); font-size: .8rem;
+    letter-spacing: 3px; text-transform: uppercase; font-weight: 700;
+  }
+  .section-head h2 {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    text-transform: uppercase; letter-spacing: 1px;
+    color: var(--charcoal); margin-top: 6px;
+  }
+
+  /* ---------- Courses ---------- */
+  .courses { background: var(--bg-alt); }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 22px;
+  }
+  .card {
+    background: #fff; border-radius: var(--radius);
+    padding: 26px 24px;
+    box-shadow: 0 4px 18px rgba(0,0,0,.06);
+    border-top: 4px solid var(--accent);
+    display: flex; flex-direction: column;
+  }
+  .card h3 {
+    text-transform: uppercase; letter-spacing: 1px;
+    color: var(--charcoal); font-size: 1.05rem; margin-bottom: 10px;
+  }
+  .card .meta {
+    font-size: .82rem; color: var(--muted); margin-bottom: 12px;
+    display: flex; flex-direction: column; gap: 3px;
+  }
+  .card p { font-size: .92rem; color: #444; flex: 1; }
+  .card .target {
+    margin-top: 14px; align-self: flex-start;
+    background: var(--accent-soft); color: var(--accent-dark);
+    font-size: .78rem; font-weight: 700; letter-spacing: 1px;
+    padding: 4px 12px; border-radius: 999px; text-transform: uppercase;
+  }
+
+  /* ---------- Why us ---------- */
+  .why .grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+  .why .card { border-top: none; border-left: 4px solid var(--accent); text-align: left; }
+  .why .card .icon { font-size: 1.6rem; margin-bottom: 10px; }
+
+  /* ---------- Register ---------- */
+  .register {
+    background: linear-gradient(160deg, var(--navy) 0%, #8a1f1f 100%);
+    color: #fff;
+  }
+  .register .section-head h2 { color: #fff; }
+  .register .section-head .kicker { color: #ffb3b3; }
+  .form-wrap {
+    max-width: 640px; margin: 0 auto;
+    background: #fff; color: var(--ink);
+    border-radius: var(--radius);
+    padding: 30px 28px;
+    box-shadow: 0 10px 40px rgba(0,0,0,.25);
+  }
+  .form-wrap .form-title {
+    color: var(--navy); text-transform: uppercase;
+    letter-spacing: 1px; font-size: 1.15rem;
+    margin-bottom: 4px; text-align: center;
+  }
+  .form-wrap .form-sub {
+    font-size: .85rem; color: var(--muted);
+    text-align: center; margin-bottom: 20px;
+  }
+  .field { margin-bottom: 18px; }
+  .field label {
+    display: block; font-weight: 700; font-size: .85rem;
+    letter-spacing: 1px; text-transform: uppercase;
+    color: var(--charcoal); margin-bottom: 6px;
+  }
+  .field label .req { color: #c0392b; }
+  .field input, .field select, .field textarea {
+    width: 100%; padding: 12px 14px;
+    border: 1.5px solid #ddd; border-radius: 8px;
+    font-size: 1rem; font-family: inherit;
+    background: #fdfdfd;
+    transition: border-color .2s;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline: none; border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+  .field .hint { font-size: .78rem; color: var(--muted); margin-top: 4px; }
+  .consent { display: flex; gap: 10px; align-items: flex-start; font-size: .88rem; margin-bottom: 22px; }
+  .consent input { width: 18px; height: 18px; margin-top: 3px; accent-color: var(--accent-dark); }
+  .form-wrap .btn { width: 100%; }
+  #thankyou {
+    display: none;
+    text-align: center; padding: 30px 10px;
+  }
+  #thankyou .big { font-size: 2.4rem; }
+  #thankyou h3 { color: var(--charcoal); text-transform: uppercase; letter-spacing: 1px; margin: 10px 0 6px; }
+
+  /* ---------- Partnership band ---------- */
+  .partner {
+    background: #fff; border-top: 1px solid #f0e3e3;
+    padding: 44px 20px; text-align: center;
+  }
+  .partner-label {
+    font-size: .8rem; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 22px;
+  }
+  .partner-logos { display: flex; align-items: center; justify-content: center; gap: 22px; flex-wrap: wrap; }
+  .partner-itt {
+    width: 60px; height: 60px; border-radius: 50%;
+    background: var(--navy); color: #fff;
+    display: grid; place-items: center;
+    font-weight: 800; letter-spacing: 1px; font-size: .8rem;
+  }
+  .partner-x { color: #d8b9b9; font-size: 22px; font-weight: 300; }
+  .partner-aff { display: flex; align-items: center; gap: 10px; }
+  .partner-aff img { width: 46px; height: 46px; object-fit: contain; }
+  .partner-aff b {
+    font-size: 22px; font-weight: 700; letter-spacing: -.3px;
+    background: linear-gradient(90deg, #4f46e5, #9333ea);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .partner-desc {
+    max-width: 640px; margin: 20px auto 0;
+    font-size: .9rem; color: var(--muted); line-height: 1.7;
+  }
+  .partner-desc a { color: #6d28d9; font-weight: 700; text-decoration: none; }
+  .partner-desc a:hover { text-decoration: underline; }
+
+  /* ---------- Contact / footer ---------- */
+  footer {
+    background: #3d0c0c; color: #e6c9c9;
+    padding: 48px 0 28px; font-size: .92rem;
+  }
+  footer .cols {
+    display: grid; gap: 32px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    margin-bottom: 32px;
+  }
+  footer h4 {
+    color: #fff; text-transform: uppercase; letter-spacing: 2px;
+    font-size: .9rem; margin-bottom: 12px;
+  }
+  footer a { color: #ff9d9d; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  footer .legal { font-size: .8rem; color: #c9a3a3; }
+  footer .branches { font-size: .82rem; color: #d9b3b3; line-height: 1.9; }
+  footer .copy {
+    border-top: 1px solid #5a1f1f; padding-top: 18px;
+    text-align: center; font-size: .8rem; color: #c9a3a3;
+  }
+
+  @media (max-width: 640px) {
+    .nav { flex-direction: column; gap: 10px; }
+    nav.menu { justify-content: center; gap: 14px; }
+    section { padding: 56px 0; }
+  }
+
+  /* ---------- Floating Zalo button ---------- */
+  .zalo-float {
+    position: fixed; right: 20px; bottom: 20px; z-index: 100;
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
+  .zalo-float .zalo-label {
+    background: #fff; color: var(--navy);
+    font-size: .85rem; font-weight: 700;
+    padding: 8px 14px; border-radius: 999px;
+    box-shadow: 0 4px 14px rgba(0,0,0,.18);
+    white-space: nowrap;
+  }
+  .zalo-float .zalo-circle {
+    width: 58px; height: 58px; border-radius: 50%;
+    background: #0068ff;
+    color: #fff; font-weight: 800; font-size: .95rem;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 18px rgba(0,104,255,.45);
+    transition: transform .15s;
+    position: relative;
+  }
+  .zalo-float:hover .zalo-circle { transform: scale(1.08); }
+  .zalo-float .zalo-circle::after {
+    content: "";
+    position: absolute; inset: 0;
+    border-radius: 50%;
+    border: 2px solid #0068ff;
+    animation: zalo-pulse 2s ease-out infinite;
+  }
+  @keyframes zalo-pulse {
+    0%   { transform: scale(1);   opacity: .8; }
+    100% { transform: scale(1.7); opacity: 0; }
+  }
+  @media (max-width: 640px) {
+    .zalo-float .zalo-label { display: none; }
+    .zalo-float { right: 14px; bottom: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">IELTS <span>THE</span> TUTORS</div>
+    <nav class="menu">
+      <a href="#khoa-hoc">Khóa học</a>
+      <a href="#hoc-vien">Học viên</a>
+      <a href="#khac-biet">Nổi bật</a>
+      <a href="#dang-ky">Đăng ký</a>
+      <a href="#lien-he">Liên hệ</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="tagline">You Deserve Better · Since 2015</div>
+      <h1>Luyện thi IELTS tại<br>IELTS The Tutors</h1>
+      <p class="sub">8+ năm kinh nghiệm đào tạo IELTS · Cam kết đầu ra bằng văn bản · Sĩ số tối đa 10 học viên/lớp · Đối tác chính thức của IDP và British Council.</p>
+      <div class="actions">
+        <a class="btn" href="#khoa-hoc">Xem khóa học</a>
+        <a class="btn ghost" href="#khac-biet">Vì sao chọn The Tutors?</a>
+      </div>
+    </div>
+    <div class="hero-form" id="dang-ky">
+    <div class="form-wrap">
+      <h2 class="form-title">Đăng ký khóa học</h2>
+      <p class="form-sub">IELTS The Tutors sẽ liên hệ với bạn qua Email hoặc Zalo trong thời gian sớm nhất.</p>
+      <form id="regForm">
+        <input type="text" name="_honey" value="" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="field">
+          <label for="name">Họ và tên <span class="req">*</span></label>
+          <input type="text" id="name" name="ho_ten" required placeholder="Nguyễn Văn A">
+        </div>
+        <div class="field">
+          <label for="phone">Số điện thoại / Zalo <span class="req">*</span></label>
+          <input type="tel" id="phone" name="dien_thoai" required pattern="[0-9+ ]{8,15}" placeholder="09xx xxx xxx">
+          <div class="hint">Chúng tôi ưu tiên liên hệ qua Zalo theo số này.</div>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="ban@email.com">
+        </div>
+        <div class="field">
+          <label for="course">Khóa học quan tâm <span class="req">*</span></label>
+          <select id="course" name="khoa_hoc" required>
+            <option value="" disabled selected>— Chọn khóa học —</option>
+            <option>Khóa Pre - IELTS 1 (0 - 2.0)</option>
+            <option>Khóa Pre - IELTS 2 (2.0 - 3.0)</option>
+            <option>Khóa Platinum (3.0 - 4.0)</option>
+            <option>Khóa Diamond (4.0 - 5.0)</option>
+            <option>Khóa Master (5.0 - 6.0)</option>
+            <option>Khóa Master+ (6.0 - 6.5)</option>
+            <option>IELTS Online</option>
+            <option>IELTS 1 kèm 1</option>
+            <option>Chưa rõ — cần tư vấn</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="schedule">Hình thức / khung giờ mong muốn</label>
+          <select id="schedule" name="lich_hoc">
+            <option value="" disabled selected>— Chọn khung lịch —</option>
+            <option>Buổi sáng</option>
+            <option>Buổi chiều</option>
+            <option>Buổi tối</option>
+            <option>Cuối tuần</option>
+            <option>Linh hoạt / Học Online</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="msg">Lời nhắn</label>
+          <textarea id="msg" name="loi_nhan" rows="4" placeholder="Mục tiêu điểm số, thời gian dự thi, câu hỏi cho IELTS The Tutors..."></textarea>
+        </div>
+        <div class="consent">
+          <input type="checkbox" id="agree" required>
+          <label for="agree" style="font-weight:400; text-transform:none; letter-spacing:0; font-size:.88rem;">Tôi đã đọc và hiểu chính sách bảo mật, đồng ý để IELTS The Tutors liên hệ tư vấn qua Email hoặc Zalo.</label>
+        </div>
+        <button class="btn" type="submit">Gửi đăng ký</button>
+        <p style="text-align:center; margin-top:14px; font-size:.88rem; color:var(--muted);">
+          Hoặc nhắn Zalo trực tiếp: <a href="https://zalo.me/0869688153" target="_blank" rel="noopener" style="color:var(--accent-dark); font-weight:700;">Zalo Ms. Uyên</a>
+        </p>
+      </form>
+
+      <div id="thankyou">
+        <div class="big">🎉</div>
+        <h3>Cảm ơn bạn đã đăng ký!</h3>
+        <p>IELTS The Tutors đã nhận được thông tin và sẽ liên hệ với bạn qua Email hoặc Zalo trong thời gian sớm nhất.</p>
+        <p style="margin-top:10px;">Cần tư vấn ngay? <a href="https://zalo.me/0869688153" target="_blank" rel="noopener" style="color:var(--accent-dark); font-weight:700;">Nhắn Zalo Ms. Uyên</a></p>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="testimonials" id="hoc-vien">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Bảng vàng thành tích</div>
+      <h2>Học viên nói gì về IELTS The Tutors</h2>
+    </div>
+    <div class="grid">
+      <div class="t-card">
+        <img src="testimonials/2-vo-thanh-quang.webp" alt="Võ Thành Quang - học viên IELTS The Tutors" loading="lazy">
+        <div class="t-body">
+          <span class="t-score">7.0 IELTS Overall</span>
+          <blockquote>"Mình học với thầy Chí ở The Tutors chỉ một tháng vì bận công việc, cần bằng gấp mà vẫn đạt 7.0. Thật sự biết ơn thầy và đội ngũ giảng viên tận tâm."</blockquote>
+          <div class="t-name">Võ Thành Quang</div>
+          <div class="t-role">Hướng dẫn viên du lịch</div>
+        </div>
+      </div>
+      <div class="t-card">
+        <img src="testimonials/3-nguyen-thi-hoang-oanh.webp" alt="Nguyễn Thị Hoàng Oanh - học viên IELTS The Tutors" loading="lazy">
+        <div class="t-body">
+          <span class="t-score">7.0 IELTS Overall</span>
+          <blockquote>"Gần một năm gắn bó với IELTS The Tutors, mình đã cố gắng không ngừng và thật vui khi đạt được IELTS 7.0 cùng suất học bổng 100%."</blockquote>
+          <div class="t-name">Nguyễn Thị Hoàng Oanh</div>
+          <div class="t-role">Sinh viên Trường Đại học UEH TPHCM</div>
+        </div>
+      </div>
+      <div class="t-card">
+        <img src="testimonials/4-tran-ngoc-thao-nhu.webp" alt="Trần Ngọc Thảo Như - học viên IELTS The Tutors" loading="lazy">
+        <div class="t-body">
+          <span class="t-score">7.0 IELTS Overall</span>
+          <blockquote>"Mình thật sự ấn tượng với giáo viên ở IELTS The Tutors, ai cũng nhiệt huyết và thân thiện. Tài liệu học cực kỳ chất lượng, giúp mình hiểu sâu và bám sát đề thi."</blockquote>
+          <div class="t-name">Trần Ngọc Thảo Như</div>
+          <div class="t-role">Sinh viên Trường Đại học Ngoại Thương - CSII TPHCM</div>
+        </div>
+      </div>
+      <div class="t-card">
+        <img src="testimonials/5-nguyen-ngoc-phuong-uyen.webp" alt="Nguyễn Ngọc Phương Uyên - học viên IELTS The Tutors" loading="lazy">
+        <div class="t-body">
+          <span class="t-score">7.0 IELTS Overall</span>
+          <blockquote>"Sau 3 tháng học ở ITTs, em được các thầy cô hỗ trợ tận tình và luôn truyền động lực nên học hành nhẹ nhàng. Kết quả là em đạt IELTS 7.0 và được tuyển thẳng vào RMIT!"</blockquote>
+          <div class="t-name">Nguyễn Ngọc Phương Uyên</div>
+          <div class="t-role">Sinh viên Trường Đại học RMIT Việt Nam</div>
+        </div>
+      </div>
+      <div class="t-card">
+        <img src="testimonials/6-vu-minh-tri.webp" alt="Vũ Minh Trí - học viên IELTS The Tutors" loading="lazy">
+        <div class="t-body">
+          <span class="t-score">7.0 IELTS Overall</span>
+          <blockquote>"Mình đang học lớp 11 nên việc cân bằng các môn đã khá vất vả. Nhờ sự tận tâm của thầy cô, mình đã tự tin chinh phục môn học từng khiến mình sợ nhất."</blockquote>
+          <div class="t-name">Vũ Minh Trí</div>
+          <div class="t-role">Du học sinh Australia</div>
+        </div>
+      </div>
+      <div class="t-card">
+        <img src="testimonials/1-dam-thi-minh-chau.webp" alt="Đàm Thị Minh Châu - học viên IELTS The Tutors" loading="lazy">
+        <div class="t-body">
+          <span class="t-score">6.5 IELTS Overall</span>
+          <blockquote>"Học viên tiêu biểu tại IELTS The Tutors, chinh phục band điểm mục tiêu nhờ lộ trình cá nhân hóa và sự đồng hành sát sao của đội ngũ giảng viên."</blockquote>
+          <div class="t-name">Đàm Thị Minh Châu</div>
+          <div class="t-role">Học sinh Trường THPT Gia Định</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COURSES ============ -->
+<section class="courses" id="khoa-hoc">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Lộ trình cấp tốc, tinh gọn</div>
+      <h2>Khóa học IELTS tại The Tutors</h2>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h3>Khóa Pre – IELTS 1</h3>
+        <div class="meta"><span>🕑 1.5 tháng</span><span>📋 6 lesson</span></div>
+        <p>Xây dựng nền tảng từ con số 0, làm quen với IELTS và cải thiện những kỹ năng thiết yếu cho tiếng Anh cơ bản.</p>
+        <span class="target">Mất gốc → 0 - 2.0</span>
+      </div>
+      <div class="card">
+        <h3>Khóa Pre – IELTS 2</h3>
+        <div class="meta"><span>🕑 2 tháng</span><span>📋 8 lesson</span></div>
+        <p>Củng cố từ vựng, ngữ pháp và phát âm, rèn luyện kỹ năng Nghe - Nói - Đọc - Viết từ cơ bản.</p>
+        <span class="target">Căn bản → 2.0 - 3.0</span>
+      </div>
+      <div class="card">
+        <h3>Khóa Platinum</h3>
+        <div class="meta"><span>🕑 2.5 tháng</span><span>📋 10 lesson</span></div>
+        <p>Dành cho học viên đã có kiến thức nền tảng, nâng cao kỹ năng xử lý đề và mở rộng vốn từ học thuật.</p>
+        <span class="target">Cốt lõi → 3.0 - 4.0</span>
+      </div>
+      <div class="card">
+        <h3>Khóa Diamond</h3>
+        <div class="meta"><span>🕑 2.5 tháng</span><span>📋 10 lesson</span></div>
+        <p>Luyện tập chuyên sâu 4 kỹ năng, làm quen với các dạng đề thi thực tế, cải thiện tốc độ làm bài.</p>
+        <span class="target">Nền tảng → 4.0 - 5.0</span>
+      </div>
+      <div class="card">
+        <h3>Khóa Master</h3>
+        <div class="meta"><span>🕑 2.5 tháng</span><span>📋 10 lesson</span></div>
+        <p>Tăng tốc band điểm với chiến lược làm bài hiệu quả, cải thiện tư duy phản biện và kỹ năng diễn đạt.</p>
+        <span class="target">Tăng cường → 5.0 - 6.0</span>
+      </div>
+      <div class="card">
+        <h3>Khóa Master+</h3>
+        <div class="meta"><span>🕑 1 tháng</span><span>📋 4 lesson</span></div>
+        <p>Nâng cấp kỹ năng làm bài chuyên sâu, tối ưu hóa điểm số với phương pháp học tập cá nhân hóa.</p>
+        <span class="target">Nâng cấp → 6.0 - 6.5</span>
+      </div>
+      <div class="card">
+        <h3>IELTS Online</h3>
+        <div class="meta"><span>🕑 Linh hoạt</span><span>📋 LMS OuterSpace</span></div>
+        <p>Học ONLINE – chất lượng OFFLINE với 100+ video bài giảng full lộ trình từ 0 đến 7.5+, tiết kiệm đến 40% học phí.</p>
+        <span class="target">Cam kết đầu ra</span>
+      </div>
+      <div class="card">
+        <h3>IELTS 1 kèm 1</h3>
+        <div class="meta"><span>🕑 Linh hoạt</span><span>📋 Personalized Learning</span></div>
+        <p>Tối ưu hóa thời gian ôn luyện ở cường độ học tập cao cùng lộ trình được thiết kế riêng cho từng học viên.</p>
+        <span class="target">Cá nhân hóa</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY US ============ -->
+<section class="why" id="khac-biet">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Điều gì làm nên sự khác biệt</div>
+      <h2>Tại IELTS The Tutors</h2>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="icon">✍️</div>
+        <h3>Cam kết đầu ra bằng văn bản</h3>
+        <p>Tính minh bạch trong chất lượng học tập, cam kết đồng hành đến khi học viên đạt mục tiêu.</p>
+      </div>
+      <div class="card">
+        <div class="icon">👥</div>
+        <h3>Sĩ số siêu lý tưởng</h3>
+        <p>Tối đa 10 học viên/lớp giúp học viên có thêm thời gian tương tác cùng giảng viên trên lớp.</p>
+      </div>
+      <div class="card">
+        <div class="icon">💻</div>
+        <h3>LMS OuterSpace thông minh</h3>
+        <p>100+ video bài giảng, 10.000+ đề luyện tập kèm bài giải mô phỏng giống 100% bài thi thật.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🤝</div>
+        <h3>Mô hình 5 kèm 1</h3>
+        <p>Học viên được theo sát bởi 5 bộ phận: giảng viên, cố vấn học tập, trợ giảng và đội ngũ hỗ trợ.</p>
+      </div>
+      <div class="card">
+        <div class="icon">⚡</div>
+        <h3>Cam kết tăng 1 band trong 48h học</h3>
+        <p>Lộ trình tinh gọn, cá nhân hóa theo tình trạng của học viên, tiết kiệm đến 40% thời gian học tập.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🌍</div>
+        <h3>Đối tác chính thức IDP &amp; British Council</h3>
+        <p>Đội ngũ 25+ giảng viên sở hữu chứng chỉ CELTA, TESOL và IELTS 8.0+.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PARTNERSHIP ============ -->
+<section class="partner">
+  <p class="partner-label">Đối tác chiến lược</p>
+  <div class="partner-logos">
+    <a href="https://ieltsthetutors.edu.vn" target="_blank" rel="noopener" class="partner-itt" style="text-decoration:none;">ITT</a>
+    <span class="partner-x">✕</span>
+    <span class="partner-aff">
+      <img src="affluence-logo.png" alt="Affluence">
+      <b>Affluence</b>
+    </span>
+  </div>
+  <p class="partner-desc"><a href="https://ieltsthetutors.edu.vn" target="_blank" rel="noopener" style="color:var(--accent-dark); font-weight:700;">IELTS The Tutors</a> hợp tác cùng <a href="https://affluence.vn" target="_blank" rel="noopener">Affluence</a> — nền tảng kết nối trường học &amp; mạng lưới marketers — nhằm mang chương trình luyện thi IELTS chất lượng cao đến gần hơn với học viên trên khắp TP.HCM.</p>
+</section>
+
+<!-- ============ FOOTER / CONTACT ============ -->
+<footer id="lien-he">
+  <div class="container">
+    <div class="cols">
+      <div>
+        <h4>IELTS The Tutors</h4>
+        <p>Công ty TNHH Dịch vụ Giáo dục The Tutors<br>"You Deserve Better" · Thành lập 2015</p>
+      </div>
+      <div>
+        <h4>Liên hệ</h4>
+        <p>💬 Zalo Ms. Uyên: <a href="https://zalo.me/0869688153" target="_blank" rel="noopener">zalo.me/0869688153</a></p>
+      </div>
+      <div>
+        <h4>Hệ thống cơ sở tại TP.HCM</h4>
+        <p class="branches">
+          Cơ sở 1: 04 Trần Văn Giáp, P. Phú Thạnh<br>
+          Cơ sở 2: 18 Thống Nhất, P. Phú Thọ Hòa<br>
+          Cơ sở 3: 60/2A Ung Văn Khiêm, P. Thạnh Mỹ Tây<br>
+          Cơ sở 4: 85 Trần Minh Quyền, P. Vườn Lài<br>
+          Cơ sở 5: 379 Nguyễn Trọng Tuyển, P. Tân Sơn Hòa
+        </p>
+      </div>
+    </div>
+    <div class="copy">"You Deserve Better" · IELTS The Tutors 2026 | Since 2015</div>
+  </div>
+</footer>
+
+<a class="zalo-float" href="https://zalo.me/0869688153" target="_blank" rel="noopener" aria-label="Nhắn Zalo Ms. Uyên">
+  <span class="zalo-label">💬 Nhắn Zalo Ms. Uyên</span>
+  <span class="zalo-circle">Zalo</span>
+</a>
+
+<script>
+  // Gửi đăng ký ngầm vào Google Form "Đăng ký khóa học — IELTS The Tutors"
+  // (form riêng của trang này).
+  var GFORM = {
+    action: 'https://docs.google.com/forms/d/e/1FAIpQLSf7OvqBXhcJq1qrNRYJqJb3bCaWT9_FmX1yCUcb3cA1M5Zxqw/formResponse',
+    map: {
+      'ho_ten': 'entry.425742551',
+      'dien_thoai': 'entry.723885556',
+      'email': 'entry.1412758514',
+      'khoa_hoc': 'entry.2109019078',
+      'lich_hoc': 'entry.1887549884',
+      'loi_nhan': 'entry.319799703'
+    }
+  };
+
+  const form = document.getElementById('regForm');
+  const thankyou = document.getElementById('thankyou');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    if (form.querySelector('[name="_honey"]').value) return;
+
+    const btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Đang gửi...';
+
+    // Chế độ demo: chưa gắn Google Form thì chỉ hiển thị lời cảm ơn.
+    if (GFORM.action.includes('YOUR_FORM_ID')) {
+      form.style.display = 'none';
+      thankyou.style.display = 'block';
+      return;
+    }
+
+    const src = new FormData(form);
+    const body = new FormData();
+    Object.keys(GFORM.map).forEach((name) => {
+      body.append(GFORM.map[name], src.get(name) || '');
+    });
+
+    fetch(GFORM.action, { method: 'POST', mode: 'no-cors', body: body })
+      .then(() => {
+        form.style.display = 'none';
+        thankyou.style.display = 'block';
+        thankyou.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      })
+      .catch(() => {
+        btn.disabled = false;
+        btn.textContent = 'Gửi đăng ký';
+        alert('Gửi không thành công, vui lòng thử lại hoặc nhắn Zalo Ms. Uyên: zalo.me/0869688153');
+      });
+  });
+</script>
+
+</body>
+</html>
