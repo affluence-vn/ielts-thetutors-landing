@@ -663,8 +663,9 @@
 <script>
   // Gửi đăng ký ngầm vào Google Form "Đăng ký khóa học — IELTS The Tutors"
   // (form riêng của trang này).
+  var CLIENT = 'ielts-thetutors';
   var GFORM = {
-    action: 'https://docs.google.com/forms/d/e/1FAIpQLSf7OvqBXhcJq1qrNRYJqJb3bCaWT9_FmX1yCUcb3cA1M5Zxqw/formResponse',
+    action: 'https://script.google.com/macros/s/AKfycbzGsRtSIzAHBPjuWWGrtaoNoChTBQm57FolpeP4jTMVaZ9IHPx8LEurANO2TolaIEvW/exec',
     map: {
       'ho_ten': 'entry.425742551',
       'dien_thoai': 'entry.723885556',
@@ -695,9 +696,10 @@
     }
 
     const src = new FormData(form);
-    const body = new FormData();
+    const body = new URLSearchParams();
+    body.append('client', CLIENT);
     Object.keys(GFORM.map).forEach((name) => {
-      body.append(GFORM.map[name], src.get(name) || '');
+      body.append(name, src.get(name) || '');
     });
 
     fetch(GFORM.action, { method: 'POST', mode: 'no-cors', body: body })
