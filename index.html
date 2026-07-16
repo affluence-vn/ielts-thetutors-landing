@@ -348,6 +348,15 @@
     .zalo-float { right: 14px; bottom: 14px; }
   }
 </style>
+
+<!-- Google Analytics — chung cho mọi landing page affluence.vn -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PGTR9CTWS2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-PGTR9CTWS2');
+</script>
 </head>
 <body>
 
@@ -382,6 +391,7 @@
       <p class="form-sub">IELTS The Tutors sẽ liên hệ với bạn qua Email hoặc Zalo trong thời gian sớm nhất.</p>
       <form id="regForm">
         <input type="text" name="_honey" value="" style="display:none" tabindex="-1" autocomplete="off">
+        <input type="hidden" name="lead_id" value="">
         <div class="field">
           <label for="name">Họ và tên <span class="req">*</span></label>
           <input type="text" id="name" name="ho_ten" required placeholder="Nguyễn Văn A">
@@ -665,7 +675,7 @@
   // (form riêng của trang này).
   var CLIENT = 'ielts-thetutors';
   var GFORM = {
-    action: 'https://script.google.com/macros/s/AKfycbzGsRtSIzAHBPjuWWGrtaoNoChTBQm57FolpeP4jTMVaZ9IHPx8LEurANO2TolaIEvW/exec',
+    action: 'https://script.google.com/macros/s/AKfycbwucHt7mWkNfYB-x6ulnBSe0Utbk-2DGyGvruMgGvr8ljGmzHFPC17B6ozChYUjr1i0/exec',
     map: {
       'ho_ten': 'entry.425742551',
       'dien_thoai': 'entry.723885556',
@@ -690,11 +700,18 @@
 
     // Chế độ demo: chưa gắn Google Form thì chỉ hiển thị lời cảm ơn.
     if (GFORM.action.includes('YOUR_FORM_ID')) {
+      gtag('event', 'generate_lead', {
+        course: body.get('khoa_hoc') || '',
+        khu_vuc: body.get('khu_vuc') || body.get('chi_nhanh') || '',
+        lead_id: leadId
+      });
       form.style.display = 'none';
       thankyou.style.display = 'block';
       return;
     }
 
+    var leadId = 'LD-' + Math.random().toString(36).slice(2, 10);
+    document.querySelector('[name="lead_id"]').value = leadId;
     const src = new FormData(form);
     const body = new URLSearchParams();
     body.append('client', CLIENT);
@@ -702,6 +719,7 @@
       body.append(name, src.get(name) || '');
     });
 
+    body.append('lead_id', leadId);
     // Gửi nền (keepalive) — phản hồi là opaque (no-cors) nên không cần chờ; hiện lời cảm ơn ngay.
     fetch(GFORM.action, { method: 'POST', mode: 'no-cors', body: body, keepalive: true })
       .catch(() => {
@@ -711,6 +729,22 @@
     thankyou.style.display = 'block';
     thankyou.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
+
+  // ---- GA event hooks ----
+  (function () {
+    var regForm = document.querySelector('input[name="_honey"]') && document.querySelector('input[name="_honey"]').form;
+    if (regForm) {
+      var started = false;
+      regForm.addEventListener('focusin', function () {
+        if (!started) { started = true; gtag('event', 'form_start', { form_id: regForm.id || 'dang-ky' }); }
+      });
+    }
+    document.querySelectorAll('a[href*="zalo.me"]').forEach(function (a) {
+      a.addEventListener('click', function () {
+        gtag('event', 'zalo_click', { placement: a.className || 'link' });
+      });
+    });
+  })();
 </script>
 
 </body>
