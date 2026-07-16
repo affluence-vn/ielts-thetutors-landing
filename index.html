@@ -702,17 +702,14 @@
       body.append(name, src.get(name) || '');
     });
 
-    fetch(GFORM.action, { method: 'POST', mode: 'no-cors', body: body })
-      .then(() => {
-        form.style.display = 'none';
-        thankyou.style.display = 'block';
-        thankyou.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      })
+    // Gửi nền (keepalive) — phản hồi là opaque (no-cors) nên không cần chờ; hiện lời cảm ơn ngay.
+    fetch(GFORM.action, { method: 'POST', mode: 'no-cors', body: body, keepalive: true })
       .catch(() => {
-        btn.disabled = false;
-        btn.textContent = 'Gửi đăng ký';
-        alert('Gửi không thành công, vui lòng thử lại hoặc nhắn Zalo Ms. Uyên: zalo.me/0869688153');
+        alert('Gửi không thành công, vui lòng nhắn Zalo Ms. Uyên: zalo.me/0869688153');
       });
+    form.style.display = 'none';
+    thankyou.style.display = 'block';
+    thankyou.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
 </script>
 
